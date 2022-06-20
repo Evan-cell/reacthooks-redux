@@ -6,6 +6,8 @@ import { faker } from '@faker-js/faker';
 
 function App() {
   const [name,setName] = useState('evan kimani')
+  const [showCard,setshowCard] = useState(true)
+  const toggleShowCard = () => setshowCard(!showCard)
   const buttonsMarkup = (
     
     <div>
@@ -16,15 +18,16 @@ function App() {
   const changeNameHandler = () => {
     setName('jacky chan')
   }
+  const changeInputHandler = e => setName(e.target.value)
   return (
     <div className="App">
-      
-      <Card name={name}
+      <button className="button" onClick={toggleShowCard}>Toggle</button>
+      {showCard? <Card name={name}
       title='Global Program Manager'
       onChangeName={changeNameHandler}
       image='https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/351.jpg'>{buttonsMarkup}
-      <button className="button" onClick={changeNameHandler}>Change name</button>
-      </Card>
+      </Card>: null}
+      
       
     </div>
   );
