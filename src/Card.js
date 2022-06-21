@@ -8,7 +8,8 @@ const Card = (props) => {
         <div className="container">
           <h4><b>{props.name}</b></h4>
           <p>{props.title}</p>
-          <input type="text" value={props.name} />
+          <input type="text" onChange={props.onChangeName} value={props.name} />
+          <button className="button" onClick={props.onDelete}>Delete</button>
           <div>{props.children}</div>
         </div>
       </div>
